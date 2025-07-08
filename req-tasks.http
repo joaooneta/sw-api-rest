@@ -1,0 +1,62 @@
+// ----- TESTES PARA USER PADRÃO -----
+//1. Criar user
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+	"name": "User Tasks",
+	"email": "usertasks@email.com",
+	"password": "asd123!"
+}
+###
+
+//2. Logar com user
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+	"email": "usertasks@email.com",
+	"password": "asd123!"
+}
+###
+
+//3. Criar task
+POST http://localhost:3000/tasks
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdjZWQ1ZGJlLTdiNGEtNDZhNS1iODAzLTMxZjQ0ZmRjMjRkZSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUxOTUzNTUyLCJleHAiOjE3NTE5NTcxNTJ9.u9SDXeDZkPolEioxIdJ2lHY7hzGSEkxjqrJ-eO9ruIA
+Content-Type: application/json
+
+{
+  "title": "Task para teste",
+  "description": "Esta é uma task para testar a criação de tasks",
+  "dueDate": "2025-07-15T12:00:00.000Z"
+}
+###
+
+//4. Buscar todas as tasks de um user
+GET http://localhost:3000/tasks/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdjZWQ1ZGJlLTdiNGEtNDZhNS1iODAzLTMxZjQ0ZmRjMjRkZSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUxOTUzNTUyLCJleHAiOjE3NTE5NTcxNTJ9.u9SDXeDZkPolEioxIdJ2lHY7hzGSEkxjqrJ-eO9ruIA
+Content-Type: application/json
+###
+
+//5. Buscar task por id
+GET http://localhost:3000/tasks/84d31ce5-7b24-4bf8-8046-28e356cd797d
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdjZWQ1ZGJlLTdiNGEtNDZhNS1iODAzLTMxZjQ0ZmRjMjRkZSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUxOTUzNTUyLCJleHAiOjE3NTE5NTcxNTJ9.u9SDXeDZkPolEioxIdJ2lHY7hzGSEkxjqrJ-eO9ruIA
+Content-Type: application/json
+###
+
+//6. Atualizar uma task
+PUT http://localhost:3000/tasks/84d31ce5-7b24-4bf8-8046-28e356cd797d
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdjZWQ1ZGJlLTdiNGEtNDZhNS1iODAzLTMxZjQ0ZmRjMjRkZSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUxOTUwOTgyLCJleHAiOjE3NTE5NTQ1ODJ9.pR8KPCuni3h6lSNokShYFcZ2lOvIKWgTbcweZgoNkh0
+Content-Type: application/json
+
+{
+  "title": "Task para teste atualizada",
+  "description": "Esta é uma task para testar a criação de tasks atualizada",
+  "completed": true
+}
+###
+
+//7. Deletar uma task
+DELETE http://localhost:3000/tasks/84d31ce5-7b24-4bf8-8046-28e356cd797d
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdjZWQ1ZGJlLTdiNGEtNDZhNS1iODAzLTMxZjQ0ZmRjMjRkZSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzUxOTUwOTgyLCJleHAiOjE3NTE5NTQ1ODJ9.pR8KPCuni3h6lSNokShYFcZ2lOvIKWgTbcweZgoNkh0
+###
